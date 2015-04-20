@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<title>Home/Inicio</title>
+
+		<link rel="stylesheet" href="lib/onsen/css/onsenui.css">
+		<link rel="stylesheet" href="styles/onsen-css-components-blue-basic-theme.css">
+		<link rel="stylesheet" href="css/index.css"/>
+		<link rel="stylesheet" href="css/Profile.css">
+		<link rel="stylesheet" href="css/Login.css">
+
+		<script src="lib/onsen/js/angular/angular.js"></script>
+    <script src="lib/onsen/js/onsenui.js"></script>
+		<script src="js/jquery.js"></script>
+
+		<script src="js/app.js"></script>
+		<script src="js/login.js"></script>
+
+		<style>
+			body {
+				background: #525252;
+			}
+			.item {
+				padding: 10px;
+				line-height: 1;
+			}
+			.item-thum {
+				background-color: #FFFFFF;
+				width: 50px;
+				height: 50px;
+				border-radius: 4px;
+			}
+			.item-thum2 {
+				background-color: #FFFFFF;
+				width: 50px;
+				height: 50px;
+				border-radius: 4px;
+			}
+			.item-thum3 {
+				background-color: #FFFFFF;
+				width: 50px;
+				height: 50px;
+				border-radius: 4px;
+			}
+			.item-title {
+				font-size: 15px;
+				font-weight: 500;
+			}
+			.item-desc {
+				font-size: 14px;
+				color: #666;
+				line-height: 1.3;
+				margin: 4px 0 0 0;
+				padding: 0 30px 0 0;
+			}
+			.item-label {
+				font-size: 12px;
+				color: #999;
+				float: right;
+			}
+		</style>
+		<!--Calendar-->
+		<script type="text/javascript" src="js/script.js"></script>
+		<link rel="stylesheet" href="css/style.css" />
+
+    </head>
+    <body ng-controller="AppController">
+        <ons-sliding-menu
+		menu-page="menu.html" main-page="page1.html" swipeable="false" draggable="false" side="left"
+		var="menu" type="reveal" max-slide-distance="260px"></ons-sliding-menu>
+
+		<ons-template id="menu.html">
+			<ons-page modifier="menu-page">
+				<!--<ons-toolbar modifier="transparent" class="custom-azul"></ons-toolbar>-->
+
+				<ons-list class="menu-list">
+					<div class="status-bar-div"></div>
+					<ons-list-item>
+
+					</ons-list-item>
+
+					<ons-list-item class="menu-item " ng-click="menu.setMainPage('miTablero.html', {closeMenu: true})">
+						<ons-icon icon="ion-home custom-icon"></ons-icon>
+						<strong>Mi Tablero</strong>
+					</ons-list-item>
+					<ons-list-item class="menu-item " ng-click="menu.setMainPage('page1.html', {closeMenu: true})">
+						<ons-icon icon="fa-suitcase custom-icon"></ons-icon>
+						<strong>Servicios</strong>
+					</ons-list-item>
+
+					<ons-list-item class="menu-item " ng-click="menu.setMainPage('page2.html', {closeMenu: true})">
+						<ons-icon icon="fa-folder custom-icon"></ons-icon>
+						<strong>Recepción</strong>
+					</ons-list-item>
+
+					<ons-list-item class="menu-item " ng-click="menu.setMainPage('page3.html', {closeMenu: true})">
+						<ons-icon icon="fa-tasks"></ons-icon>
+						<strong>Mesa de trabajo</strong>
+					</ons-list-item>
+
+				</ons-list>
+
+				<br>
+
+				<ons-list class="menu-list">
+					<ons-list-item class="menu-item custom-icon" ng-click="menu.setMainPage('directorio.html', {closeMenu: true})">
+						<ons-icon icon="ion-android-information"></ons-icon>
+						<strong>Clientes</strong>
+					</ons-list-item>
+
+					<!--<ons-list-item class="menu-item custom-icon" ng-click="menu.setMainPage('page4.html', {closeMenu: true})">
+						<ons-icon icon="ion-ios7-chatbubble"></ons-icon>
+						<strong>Mensajes</strong>
+					</ons-list-item>-->
+
+					<!--<ons-list-item class="menu-item" ng-click="menu.setMainPage('page5.html', {closeMenu: true})">
+						<ons-icon icon="icon ion-android-settings"></ons-icon>
+						<strong>Ajustes</strong>
+					</ons-list-item>-->
+					<ons-list-item class="menu-item" ng-click="menu.setMainPage('perfil.html', {closeMenu: true})">
+						<ons-icon icon="icon ion-android-social-user"></ons-icon>
+						<strong>Perfil</strong>
+					</ons-list-item>
+					<ons-list-item class="menu-item" ng-click="menu.setMainPage('ayuda.html', {closeMenu: true})">
+						<ons-icon icon="icon ion-help"></ons-icon>
+						<strong>Ayuda</strong>
+					</ons-list-item>
+
+					<!--<ons-list-item class="menu-item " ng-click="menu.setMainPage('micro.html', {closeMenu: true})">
+						<ons-icon icon="icon ion-android-information"></ons-icon>
+						<strong>Micro Contenido</strong>
+					</ons-list-item>-->
+				</ons-list>
+			</ons-page>
+		</ons-template>
+
+		<ons-template id="miTablero.html">
+			<ons-navigator animation="slide">
+				<ons-page ng-controller="MiTableroController">
+					<ons-toolbar modifier="transparent">
+						<div class="left">
+							<ons-toolbar-button ng-click="menu.toggle()">
+								<ons-icon icon="ion-navicon custom-icon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="center">
+							Mi Tablero
+						</div>
+
+						<!--<div class="right">
+							<ons-toolbar-button ng-click="menu.setMainPage('micro.html', {closeMenu: true})">
+								<ons-icon icon="fa-graduation-cap custom-icon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>-->
+					</ons-toolbar>
+					<ons-list ng-controller="TicketController">
+						<ons-list-item modifier="chevron" class="item" ng-repeat="item in items | filter: finalUser : strict " ng-click="showTicket(item)">
+								<ons-row>
+								<ons-col width="60px">
+									<div class="item-thum"></div>
+								</ons-col>
+								<ons-col>
+									<header>
+										<span class="item-title">{{item.problema}}</span>
+										<span class="item-label">{{item.fecha}}</span>
+									</header>
+									<p class="item-desc">
+										{{item.solucion}}
+									</p>
+								</ons-col>
+							</ons-row>
+						</ons-list-item>
+					</ons-list>
+				</ons-page>
+			</ons-navigator>
+		</ons-template>
+		<ons-template id="page1.html">
+			<ons-navigator animation="slide" var="app.navi">
+				<ons-page>
+					<ons-toolbar modifier="transparent">
+						<div class="left">
+							<ons-toolbar-button ng-click="menu.toggle()">
+								<ons-icon icon="ion-navicon custom-icon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="center">
+							Servicios
+						</div>
+
+						<div class="right">
+							<ons-toolbar-button ng-click="menu.setMainPage('calendar.html', {closeMenu: true})">
+								<ons-icon icon="fa-calendar custom-icon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+					</ons-toolbar>
+					<div class="navigation-bar">
+						<div class="navigation-bar__center">
+
+							<input type="search" class="search-input" style="width: 96%; margin: 6px auto 6px auto;" placeholder="Buscar" ng-model="entradaSPTE">
+
+						</div>
+					</div>
+
+					<ons-list ng-controller="SPTEMasterController">
+						<ons-list-item modifier="chevron" class="item" ng-repeat="item in items | filter:entradaSPTE " ng-click="showSPTEDetail(item)">
+							<ons-row>
+								<ons-col width="60px">
+									<div class="item-thum"><img style="height: 50px; width: 50px;" src="http://www.empowerlabs.com/intellibanks/pub/ProjectDigitalDesignStudio/ProyectoNotaria22/icon_pluma_color1.png"/></div>
+								</ons-col>
+								<ons-col>
+									<header>
+										<span class="item-title">{{item.act}}</span>
+										<span class="item-label">{{item.createdate}}</span>
+									</header>
+									<p class="item-desc">
+										{{item.account}}
+									</p>
+								</ons-col>
+							</ons-row>
+						</ons-list-item>
+					</ons-list>
+				</ons-page>
+			</ons-navigator>
+		</ons-template>
+		<ons-template id="detailSPTE.html">
+			<ons-page ng-controller="SPTEDetailController">
+
+				<ons-toolbar>
+					<div class="left">
+						<ons-back-button>
+							
+						</ons-back-button>
+					</div>
+					<div class="center">
+						{{item.act}}
+					</div>
+				</ons-toolbar>
+
+				<ons-list modifier="inset" style="margin-top: 10px">
+					<ons-list-item class="item">
+						<ons-row>
+							<ons-col width="60px">
+								<div class="item-thum"></div>
+							</ons-col>
+							<ons-col>
+								<header>
+									<span class="item-title">{{item.act}}</span>
+									<span class="item-label">{{item.createdate}}</span>
+								</header>
+								<p class="item-desc">
+									{{item.account}}
+								</p>
+							</ons-col>
+						</ons-row>
+					</ons-list-item>
+
+					<ons-list-item modifier="chevron" ng-click="doSomething()">
+						<ons-icon icon="ion-star" fixed-width="true" style="color: #ccc"></ons-icon>
+						Marcar como favorito
+					</ons-list-item>
+				</ons-list>
+
+				<ons-list style="margin-top: 10px">
+					<ons-list-item class="item">
+						<header>
+							<span class="item-title">{{item.nombre}}</span>
+						</header>
+						<p class="item-desc">
+							{{item.act}}
+						</p>
+						<p class="item-desc">
+							<strong>Descripción: </strong> {{item.description}}
+						</p>
+						<p class="item-desc">
+							<strong>Cliente: </strong>{{item.account}}
+						</p>
+						<p class="item-desc">
+							<strong>Asignado a: </strong>{{item.assignedto}}
+						</p>
+						<p class="item-desc">
+							<strong>Responsable: </strong>{{item.responsiblenow}}
+						</p>
+						<p class="item-desc">
+							<strong>Etapa: </strong>{{item.stage}}
+						</p>
+					</ons-list-item>
+					<ons-list-item class="item">
+						<header>
+							<span class="item-title">Próximo contacto con el cliente</span>
+						</header>
+						<p class="item-desc">
+							{{item.act}}
+						</p>
+						<p class="item-desc">
+							<strong>Próxima fecha de contacto: </strong>{{item.nextcontactdate}}
+						</p>
+						<p class="item-desc">
+							<strong>Tipo: </strong>{{item.nextcontacttype}}
+						</p>
+						<p class="item-desc">
+							<strong>Estado: </strong>{{item.status}}
+						</p>
+					</ons-list-item>
+				</ons-list>
+
+				<br>
+
+			</ons-page>
+		</ons-template>
+
+		<ons-template id="page2.html">
+			<ons-navigator animation="slide" var="app.navi">
+				<ons-page>
+					<ons-toolbar>
+						<div class="left">
+							<ons-toolbar-button ng-click="menu.toggle()">
+								<ons-icon icon="ion-navicon custom-icon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="center">
+							Recepción
+						</div>
+
+						<div class="right">
+							<ons-toolbar-button ng-click="menu.toggle()">
+								<ons-icon icon="ion-ios7-search-strong custom-icon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+					</ons-toolbar>
+					<div class="navigation-bar">
+						<div class="navigation-bar__center">
+
+							<input type="search" class="search-input" style="width: 96%; margin: 6px auto 6px auto;" placeholder="Buscar" ng-model="entradaRecepcion">
+
+						</div>
+					</div>
+
+					<ons-list ng-controller="MasterController">
+						<ons-list-item modifier="chevron" class="item" ng-repeat="item in items | filter : entradaRecepcion" ng-click="showDetail(item)">
+							<ons-row>
+								<ons-col width="60px">
+									<div class="item-thum"><img style="height: 50px; width: 50px;" src="http://www.empowerlabs.com/intellibanks/pub/ProjectDigitalDesignStudio/ProyectoNotaria22/icon_pluma_color1.png"/></div>
+								</ons-col>
+								<ons-col>
+									<header>
+										<span class="item-title">{{item.subject}}</span>
+										<span class="item-label">{{item.date}}</span>
+									</header>
+									<p class="item-desc">
+										{{item.caller}}
+									</p>
+								</ons-col>
+							</ons-row>
+						</ons-list-item>
+					</ons-list>
+				</ons-page>
+			</ons-navigator>
+		</ons-template>
+		<ons-template id="detail.html">
+			<ons-page ng-controller="DetailController">
+
+				<div class="status-bar-div"></div>
+				<ons-toolbar>
+					<div class="left">
+						<ons-back-button>
+							
+						</ons-back-button>
+					</div>
+					<div class="center">
+						{{item.subject}}
+					</div>
+				</ons-toolbar>
+
+				<ons-list modifier="inset" style="margin-top: 10px">
+					<ons-list-item class="item">
+						<ons-row>
+							<ons-col width="60px">
+								<div class="item-thum"></div>
+							</ons-col>
+							<ons-col>
+								<header>
+									<span class="item-title">{{item.subject}}</span>
+									<span class="item-label">{{item.date}}</span>
+								</header>
+								<p class="item-desc">
+									{{item.caller}}
+								</p>
+							</ons-col>
+						</ons-row>
+					</ons-list-item>
+
+					<ons-list-item modifier="chevron" ng-click="doSomething()">
+						<ons-icon icon="ion-star" fixed-width="true" style="color: #ccc"></ons-icon>
+						Marcar como favorito
+					</ons-list-item>
+				</ons-list>
+
+				<ons-list style="margin-top: 10px">
+					<ons-list-item class="item">
+						<header>
+							<span class="item-title">{{item.subject}}</span>
+						</header>
+						<p class="item-desc">
+							{{item.message}}
+						</p>
+						<p class="item-desc">
+							<strong>Por: </strong>{{item.caller}}
+						</p>
+						<p class="item-desc">
+							<strong>Email: </strong>{{item.email}}
+						</p>
+						<p class="item-desc">
+							<strong>Responsable: </strong>{{item.addressed_to}}
+						</p>
+						<p class="item-desc">
+							<strong>Tipo: </strong>{{item.type}}
+						</p>
+					</ons-list-item>
+				</ons-list>
+
+				<br>
+
+			</ons-page>
+		</ons-template>
+		<ons-template id="page3.html">
+			<ons-navigator animation="lift" var="app.navi">
+				<ons-tabbar>
+					<ons-tab page="home.html" active="true">
+						<ons-icon icon="ion-home"></ons-icon>
+						<span style="font-size: 14px">Tickets</span>
+					</ons-tab>
+					<ons-tab page="fav.html">
+						<ons-icon icon="ion-star"></ons-icon>
+						<span style="font-size: 14px">Favoritos</span>
+					</ons-tab>
+					<ons-tab page="settings.html">
+						<ons-icon icon="ion-gear-a"></ons-icon>
+						<span style="font-size: 14px">Ajustes</span>
+					</ons-tab>
+				</ons-tabbar>
+
+				<ons-template id="home.html">
+
+					<ons-toolbar>
+						<div class="left">
+							<ons-toolbar-button ng-click="menu.toggle()">
+								<ons-icon icon="ion-navicon custom-icon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="right">
+							<ons-toolbar-button ng-click="newTicket()" ng-controller="NewTicketController">
+								<ons-icon icon="ion-compose custom-icon"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="center">
+							Mesa de Trabajo
+						</div>
+					</ons-toolbar>
+					<div class="navigation-bar">
+						<div class="navigation-bar__center">
+
+							<input type="search" class="search-input" style="width: 96%; margin: 6px auto 6px auto;" placeholder="Buscar" ng-model="entradaTicket">
+
+						</div>
+					</div>
+					<ons-list ng-controller="TicketController">
+
+						<!--<div id="ticketbox"></div>-->
+						<ons-list-item modifier="chevron" class="item" ng-repeat="item in items | filter : entradaTicket" ng-click="showTicket(item)">
+							<ons-row>
+								<ons-col width="60px">
+									<div class="item-thum"><img style="height: 50px; width: 50px;" src="http://www.empowerlabs.com/intellibanks/pub/ProjectDigitalDesignStudio/ProyectoNotaria22/icon_pluma_color1.png"/></div>
+								</ons-col>
+								<ons-col>
+									<header>
+										<span class="item-title">{{item.problema}}</span>
+										<span class="item-label">{{item.fecha}}</span>
+									</header>
+									<p class="item-desc">
+										{{item.solucion}}
+									</p>
+								</ons-col>
+							</ons-row>
+						</ons-list-item>
+					</ons-list>
+				</ons-template>
+
+				<ons-template id="fav.html">
+					<div class="status-bar-div"></div>
+					<ons-toolbar>
+						<div class="left">
+							<ons-toolbar-button ng-click="menu.toggle()">
+								<ons-icon icon="ion-navicon custom-icon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="center">
+							Favoritos
+						</div>
+					</ons-toolbar>
+
+					<p style="padding-top: 100px; color: #999; text-align: center">
+						Tickets favoritos
+					</p>
+				</ons-template>
+
+				<ons-template id="settings.html">
+					<ons-toolbar>
+						<div class="left">
+							<ons-toolbar-button ng-click="menu.toggle()">
+								<ons-icon icon="ion-navicon custom-icon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="center">
+							Ajustes
+						</div>
+					</ons-toolbar>
+					<ons-row class="profile-wrapper">
+						<!--<ons-col width="60px" class="profile-image-wrapper">
+						<div class="profile-image"></div>
+						</ons-col>-->
+
+						<ons-col>
+							<div class="profile-name">
+								Ajustables
+							</div>
+							<div class="profile-email">
+								foobar@example.com
+							</div>
+						</ons-col>
+
+					</ons-row>
+
+					<div class="settings-header">
+						Audio
+					</div>
+
+					<ons-list modifier="inset" class="settings-list">
+						<ons-list-item>
+							Sonidos
+							<ons-switch modifier="list-item"></ons-switch>
+						</ons-list-item>
+
+						<ons-list-item>
+							Notificaciones
+							<ons-switch modifier="list-item" checked></ons-switch>
+						</ons-list-item>
+					</ons-list>
+
+					<div class="settings-header">
+						Otros
+					</div>
+
+					<ons-list modifier="inset" class="settings-list">
+						<ons-list-item modifier="chevron" ng-click="doSomething()">
+							Terms de servicio
+						</ons-list-item>
+
+						<ons-list-item modifier="chevron" ng-click="doSomething()">
+							Politica de privacidad
+						</ons-list-item>
+					</ons-list>
+
+					<br>
+
+					<ons-list modifier="inset" class="settings-list">
+						<ons-list-item modifier="tappable" ng-click="doSomething()">
+							<ons-icon icon="ion-log-out" style="opacity: 0.8"></ons-icon>
+							Sign out
+						</ons-list-item>
+					</ons-list>
+
+					<br>
+				</ons-template>
+
+			</ons-navigator>
+		</ons-template>
+		<ons-template id="page4.html">
+			<ons-navigator animation="slide">
+				<ons-tabbar>
+					<ons-tab>
+						<!-- page="mensajes.html"-->
+						<ons-icon icon="ion-ios7-chatboxes" class="tab-icon"></ons-icon><span class="tab-label">Chats</span>
+					</ons-tab>
+
+					<ons-tab page="people.html" active="true">
+						<ons-icon icon="ion-ios7-people" class="tab-icon"></ons-icon><span class="tab-label">Colaboradores</span>
+					</ons-tab>
+
+					<ons-tab page="perfil.html">
+						<ons-icon icon="ion-person" class="tab-icon"></ons-icon><span class="tab-label">Mi Perfil</span>
+					</ons-tab>
+				</ons-tabbar>
+
+			</ons-navigator>
+		</ons-template>
+		
+				<ons-template id="ticketOne.html">
+					<ons-page ng-controller="TicketOneController">
+
+						<ons-toolbar>
+							<div class="left">
+								<ons-back-button>
+									
+								</ons-back-button>
+							</div>
+							<div class="center">
+								{{item.problema}}
+							</div>
+						</ons-toolbar>
+
+						<ons-list modifier="inset" style="margin-top: 10px">
+							<ons-list-item class="item">
+								<ons-row>
+									<ons-col width="60px">
+										<div class="item-thum"></div>
+									</ons-col>
+									<ons-col>
+										<header>
+											<span class="item-title">{{item.problema}}</span>
+											<span class="item-label">{{item.fecha}}</span>
+										</header>
+										<p class="item-desc">
+											<strong>Responsable: </strong>{{item.solucion}}
+										</p>
+									</ons-col>
+								</ons-row>
+							</ons-list-item>
+
+							<ons-list-item modifier="chevron" ng-click="doSomething()">
+								<ons-icon icon="ion-star" fixed-width="true" style="color: #ccc"></ons-icon>
+								Marcar como favorito
+							</ons-list-item>
+						</ons-list>
+
+						<ons-list style="margin-top: 10px">
+							<ons-list-item class="item">
+								<header>
+									<span class="item-title">{{item.problema}}</span>
+								</header>
+								<p class="item-desc">
+									{{item.descripcion}}
+								</p>
+								<p class="item-desc">
+									<strong>Por: </strong>{{item.autor}}
+								</p>
+								<p class="item-desc">
+									<strong>Email: </strong>{{item.email}}
+								</p>
+								<p class="item-desc">
+									<strong>Responsable: </strong>{{item.solucion}}
+								</p>
+								<p class="item-desc">
+									<strong>Avance: </strong>{{item.porcentaje}}
+								</p>
+							</ons-list-item>
+						</ons-list>
+
+						<br>
+
+					</ons-page>
+				</ons-template>
+		<ons-template id="page5.html">
+			<ons-navigator animation="slide" var="app.navi">
+				<ons-toolbar>
+					<div class="left">
+						<ons-toolbar-button ng-click="menu.toggle()">
+							<ons-icon icon="ion-navicon custom-icon" size="28px" fixed-width="false"></ons-icon>
+						</ons-toolbar-button>
+					</div>
+					<div class="center">
+						Ajustes
+					</div>
+				</ons-toolbar>
+				
+
+				<div class="settings-header">
+					Audio
+				</div>
+
+				<ons-list modifier="inset" class="settings-list">
+					<ons-list-item>
+						Sonidos
+						<ons-switch modifier="list-item"></ons-switch>
+					</ons-list-item>
+
+					<ons-list-item>
+						Notificaciones
+						<ons-switch modifier="list-item" checked></ons-switch>
+					</ons-list-item>
+				</ons-list>
+
+				<div class="settings-header">
+					Otros
+				</div>
+
+				<ons-list modifier="inset" class="settings-list">
+					<ons-list-item modifier="chevron" ng-click="doSomething()">
+						Terms de servicio
+					</ons-list-item>
+
+					<ons-list-item modifier="chevron" ng-click="doSomething()">
+						Politica de privacidad
+					</ons-list-item>
+				</ons-list>
+
+				<br>
+
+				<ons-list modifier="inset" class="settings-list">
+					<ons-list-item modifier="tappable" ng-click="doSomething()">
+						<ons-icon icon="ion-log-out" style="opacity: 0.8"></ons-icon>
+						Sign out
+					</ons-list-item>
+				</ons-list>
+
+				<br>
+			</ons-navigator>
+		</ons-template>
+		<ons-template id="newTicket.html">
+			<ons-page>
+				<ons-toolbar>
+					<div class="left">
+						<ons-back-button>
+							Regresar
+						</ons-back-button>
+					</div>
+					<div class="center">
+						Nuevo Ticket
+					</div>
+				</ons-toolbar>
+
+				<ons-list modifier="inset" style="margin-top: 10px">
+					<ons-list-item>
+						<input type="text" class="text-input text-input--transparent" placeholder="Fecha" style="width: 100%">
+					</ons-list-item>
+					<ons-list-item>
+						<input type="text" class="text-input text-input--transparent" placeholder="Autor" style="width: 100%">
+					</ons-list-item>
+					<ons-list-item>
+						<input type="text" class="text-input text-input--transparent" placeholder="Problema" style="width: 100%">
+					</ons-list-item>
+					<ons-list-item>
+						<input type="text" class="text-input text-input--transparent" placeholder="Prioridad" style="width: 100%">
+					</ons-list-item>
+					<ons-list-item>
+						<textarea class="textarea--transparent" placeholder="Descripción del problema" style="width: 100%; height: 100px;"></textarea>
+					</ons-list-item>
+
+					<ons-list-item modifier="chevron">
+						<ons-icon icon="fa-tag" style="opacity:0.2"></ons-icon>
+					</ons-list-item>
+
+				</ons-list>
+
+				<div style="padding: 10px 9px">
+					<ons-button modifier="large" style="margin: 0 auto;">
+						Enviar
+					</ons-button>
+				</div>
+
+			</ons-page>
+		</ons-template>
+		<ons-template id="login2.html">
+			<ons-page style="background-color: #EFEFEF">
+				<ons-toolbar style="background-color: #EFEFEF">
+					<div class="center">
+						<img src="http://www.empowerlabs.com/intellibanks/pub/ProjectDigitalDesignStudio/ProyectoNotaria22/Logowiki140x40.png" />
+					</div>
+				</ons-toolbar>
+
+				<div class="login-form">
+					<div class="center">
+						<form id="logueo">
+							<input id="user" type="email" class="text-input--underbar" placeholder="Usuario" value="" name="user" style="background:#FFFFFF; text-align: center; border-radius: 5px;" />
+							<br>
+							<input type="password" class="text-input--underbar" placeholder="Contraseña" value="" name="pass" style="background:#FFFFFF; text-align: center; border-radius: 5px;" />
+							<br>
+							<br>
+							<ons-button modifier="large" class="login-button" onclick="send();">
+								Log In
+							</ons-button>
+							<br>
+						</form>
+					</div>
+
+				</div>
+
+			</ons-page>
+		</ons-template>
+		<ons-template id="perfil.html">
+			<ons-page ng-controller="profileController">
+				<ons-toolbar>
+					<div class="left">
+						<ons-toolbar-button ng-click="menu.toggle()">
+							<ons-icon icon="ion-navicon custom-icon" size="28px" fixed-width="false"></ons-icon>
+						</ons-toolbar-button>
+					</div>
+					<div class="center">
+						Perfil
+					</div>
+					<div class="right">
+						<ons-toolbar-button>
+							<ons-icon icon="ion-gear-a custom-icon" style="vertical-align: -4px; font-size: 28px;"></ons-icon>
+						</ons-toolbar-button>
+					</div>
+				</ons-toolbar>
+
+				<div class="profile-card">
+
+					<img src="{{data.image}}" class="profile-image">
+					<div class="profile-name">
+						{{data.firstname}} {{data.lastname}}
+					</div>
+					<div class="profile-id">
+						{{data.user}}
+					</div>
+					<div class="profile-desc">
+						{{data.titles}}
+					</div>
+
+				</div>
+
+				<ons-list>
+					<!--<ons-list-item>
+					<ons-row>
+					<ons-col class="info-col">
+					<div class="info-num">
+					87
+					</div>
+					<div class="info-unit">
+					Comentarios
+					</div>
+					</ons-col>
+					<ons-col class="info-col">
+					<div class="info-num">
+					40
+					</div>
+					<div class="info-unit">
+					Siguiendo
+					</div>
+					</ons-col>
+					<ons-col class="info-col">
+					<div class="info-num">
+					38
+					</div>
+					<div class="info-unit">
+					Seguidores
+					</div>
+					</ons-col>
+					</ons-row>
+					</ons-list-item>-->
+				</ons-list>
+
+				<ons-list modifier="inset" style="margin-top: 10px">
+					<ons-list-item modifier="chevron">
+						<strong>Skype: </strong>{{data.skypeid}}
+					</ons-list-item>
+					<ons-list-item modifier="chevron">
+						<strong>País: </strong>{{data.country}}
+					</ons-list-item>
+					<ons-list-item modifier="chevron">
+						<strong>Organización: </strong>{{data.organization}}
+					</ons-list-item>
+					<ons-list-item modifier="chevron">
+						<strong>Correo: </strong>{{data.email}}
+					</ons-list-item>
+
+					<ons-list-item modifier="chevron">
+						<strong>Teléfono: </strong>{{data.telephone}}
+					</ons-list-item>
+
+					<ons-list-item modifier="chevron">
+						<strong>Móvil: </strong>{{data.mobile}}
+					</ons-list-item>
+
+					<ons-list-item modifier="chevron">
+						<strong>URL: </strong>{{data.url}}
+					</ons-list-item>
+
+					<ons-list-item modifier="chevron">
+						<strong>Status: </strong>{{data.statusupdate}}
+					</ons-list-item>
+
+				</ons-list>
+				<br>
+			</ons-page>
+		</ons-template>
+		<ons-template id="people.html">
+			<ons-navigator animation="lift">
+				<ons-page ng-controller="peopleController">
+					<ons-toolbar>
+						<div class="left">
+							<ons-toolbar-button ng-click="menu.toggle()">
+								<ons-icon icon="ion-navicon custom-icon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="center">
+							Colaboradores
+						</div>
+						<div class="right">
+							<ons-toolbar-button>
+								<ons-icon icon="ion-plus" fixed-width="false" style="vertical-align: -4px;"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+					</ons-toolbar>
+
+					<div class="navigation-bar">
+						<div class="navigation-bar__center">
+
+							<input type="search" class="search-input" style="width: 96%; margin: 6px auto 6px auto;" placeholder="Buscar" ng-model="entrada">
+
+						</div>
+					</div>
+
+					<ons-list class="person-list">
+						<ons-list-header class="person-list-header">
+							<!--{{data[char]}}-->
+						</ons-list-header>
+						<ons-list-item class="person" modifier="tappable" ng-repeat="i in data | filter:entrada">
+							<ons-row>
+								<ons-col width="40px">
+									<img src="img/user_icon_blue.png" class="person-image">
+								</ons-col>
+								<ons-col class="person-name" ng-click="newMessage(i)">
+									{{i}}
+								</ons-col>
+							</ons-row>
+						</ons-list-item>
+					</ons-list>
+
+				</ons-page>
+			</ons-navigator>
+		</ons-template>
+
+		<ons-template id="mensajes.html">
+			<ons-page ng-controller="newMessageController">
+				<ons-toolbar>
+					<div class="left">
+						<ons-back-button>
+							Regresar
+						</ons-back-button>
+					</div>
+					<div class="center">
+						Nuevo Mensaje
+					</div>
+				</ons-toolbar>
+
+				<ons-list modifier="inset" style="margin-top: 10px">
+					<ons-list-item class="to-wrapper">
+						<ons-row>
+							<ons-col width="52px">
+								<img src="img/def.png" width="42" class="to-image">
+							</ons-col>
+							<ons-col>
+								<div class="to-name">
+									{{seleccion}}
+								</div>
+								<div class="to-email">
+									{{seleccion}}
+								</div>
+							</ons-col>
+						</ons-row>
+					</ons-list-item>
+					<ons-list-item>
+						<input type="text" class="text-input text-input--transparent" placeholder="Nombre" style="width: 100%">
+					</ons-list-item>
+
+					<ons-list-item>
+						<textarea name="textarea" class="textarea textarea--transparent" style="width: 100%; height: 100px;" placeholder="Mensaje"></textarea>
+					</ons-list-item>
+
+					<ons-list-item modifier="chevron">
+						<ons-icon icon="fa-tag" style="opacity:0.2"></ons-icon>
+					</ons-list-item>
+				</ons-list>
+
+				<div style="padding: 10px 9px">
+					<ons-button modifier="large" style="margin: 0 auto;">
+						Enviar
+					</ons-button>
+				</div>
+			</ons-page>
+		</ons-template>
+		<ons-template id="ayuda.html">
+			<ons-page>
+				<ons-toolbar>
+					<div class="left">
+						<ons-toolbar-button ng-click="menu.toggle()">
+							<ons-icon icon="ion-navicon custom-icon" size="28px" fixed-width="false"></ons-icon>
+						</ons-toolbar-button>
+					</div>
+					<div class="center">
+						Ayuda
+					</div>
+				</ons-toolbar>
+				<ons-carousel swipeable overscrollable auto-scroll fullscreen var="carousel">
+					
+					<ons-carousel-item style="background-color: #085078;">
+						<div class="item-label"><img src="img/ayuda/Imagen3.png" width="100%" height="80%">
+						</div>
+						<h2 style="color: #FFFFFF; text-align: center;">Filtrado de elementos</h2>
+					</ons-carousel-item>
+					<ons-carousel-item style="background-color: orange;">
+						<div><img src="img/ayuda/Imagen4.png" width="100%" height="80%">
+						</div>
+						<h2 style="color: #FFFFFF; text-align: center;">Elemento individual</h2>
+					</ons-carousel-item>
+					<ons-carousel-cover>
+						<div style="text-align: center; position: absolute; left: 0px; width: 100%; bottom: 10px; color: #72C6D8;">
+							Desliza a la derecha o izquierda
+						</div>
+					</ons-carousel-cover>
+				</ons-carousel>
+			</ons-page>
+		</ons-template>
+
+		<ons-modal var="modal">
+			<ons-icon icon="ion-loading-c" spin="true"></ons-icon>
+			<br>
+			Cargando informacion, por favor espere ...
+		</ons-modal>
+
+		<ons-template id="calendar.html">
+			<ons-navigator animation="lift">
+				<ons-page>
+					<ons-toolbar>
+						<div class="left">
+							<ons-toolbar-button ng-click="menu.toggle()">
+								<ons-icon icon="ion-navicon custom-icon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="center">
+							Calendario
+						</div>
+					</ons-toolbar>
+					<div class="container" ng-controller="CalendarController">
+						<div class="controls">
+							<p class="next label" onclick="nextMonth()">
+								<i class="ion-android-arrow-forward"></i>
+							</p>
+							<p class="previous label" onclick="previousMonth()">
+								<i class="ion-android-arrow-back"></i>
+							</p>
+							<p id="current-month" class="label bold">
+								Enero
+							</p>
+						</div>
+
+						<div class="calendar" id="calendar" ng-click="verFecha()">
+							<!-- Calandar HTML output here -->
+						</div>
+					</div>
+				</ons-page>
+			</ons-navigator>
+		</ons-template>
+		<ons-template id="dia.html">
+			<ons-page ng-controller="SelectedFechaController">
+				<ons-toolbar>
+					<div class="left">
+						<ons-back-button>
+							Regresar
+						</ons-back-button>
+					</div>
+					<div class="center">
+						{{fecha.mes}} {{fecha.dia}}
+					</div>
+				</ons-toolbar>
+				<ons-list ng-controller="SPTEMasterController">
+					<ons-list-item modifier="chevron" class="item" ng-repeat="item in items | filter : finalFecha : strict " ng-click="showSPTEDetail(item)">
+						<ons-row>
+							<ons-col width="60px">
+								<div class="item-thum"></div>
+							</ons-col>
+							<ons-col>
+								<header>
+									<span class="item-title">{{item.act}}</span>
+									<span class="item-label">{{item.createdate}}</span>
+								</header>
+								<p class="item-desc">
+									{{item.account}}
+								</p>
+							</ons-col>
+						</ons-row>
+					</ons-list-item>
+				</ons-list>
+
+			</ons-page>
+		</ons-template>
+		<ons-template id="micro.html">
+			<ons-navigator animation="slide">
+				<ons-page ng-controller="MicroController">
+					<ons-toolbar>
+						<div class="left">
+							<ons-toolbar-button ng-click="menu.toggle()">
+								<ons-icon icon="ion-navicon custom-icon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="center">
+							Prueba Micro contenido
+						</div>
+					</ons-toolbar>
+					<ons-list modifier="chevron">
+						<ons-list-item>
+
+							<ons-list style="margin-top: 10px">
+								<ons-list-item class="item">
+									<header>
+										<span class="item-title">{{item.Title}}</span>
+									</header>
+									<p class="item-desc">
+										{{item.Summary}}
+									</p>
+									<p class="item-desc">
+										<strong>Por: </strong>{{item.Contribute}}
+									</p>
+									<p class="item-desc">
+										<strong>Categoria:: </strong>{{item.Category}}
+									</p>
+								</ons-list-item>
+							</ons-list>
+						</ons-list-item>
+						<ons-list-item class="item" modifier="chevron" ng-click="video(item)">
+							Video
+						</ons-list-item>
+						<ons-list-item class="item" modifier="chevron" ng-click="audio(item)">
+							Audio
+						</ons-list-item>
+						<ons-list-item class="item" modifier="chevron" ng-click="texto()">
+							Texto
+						</ons-list-item>
+						<ons-list-item class="item" modifier="chevron" ng-click="presentacion()">
+							Presentación
+						</ons-list-item>
+					</ons-list>
+
+				</ons-page>
+			</ons-navigator>
+		</ons-template>
+		<ons-template id="video.html">
+			<ons-page ng-controller="VideoController">
+				<ons-toolbar>
+					<div class="left">
+						<ons-back-button>
+							Regresar
+						</ons-back-button>
+					</div>
+					<div class="center">
+						Micro Video
+					</div>
+				</ons-toolbar>
+				<ons-list style="margin-top: 10px">
+					<ons.list-item class="item" style=" text-align: center">
+						<video controls="true">
+    <source ng-src="https://www.youtube.com/watch?v=scRWvWvB5wE" type="video/mp4"></source>
+</video>
+						<p> {{url}}</p>
+					</ons.list-item>
+				</ons-list>
+			</ons-page>
+		</ons-template>
+		<ons-template id="audio.html">
+			<ons-page ng-controller="AudioController">
+				<ons-toolbar>
+					<div class="left">
+						<ons-back-button>
+							Regresar
+						</ons-back-button>
+					</div>
+					<div class="center">
+						Micro Audio
+					</div>
+				</ons-toolbar>
+				<ons-list style="margin-top: 10px" >
+					<ons.list-item class="item" style=" text-align: center">
+						<audio style="height: 40px;" controls>
+							<source src="{{url}}" type="audio/mpeg">
+							Your browser does not support the audio element.
+						</audio>
+						{{url}}
+					</ons.list-item>
+				</ons-list>
+			</ons-page>
+		</ons-template>
+		<ons-template id="directorio.html">
+			<ons-navigator animation="slide"> 
+				<ons-page>
+				
+					<ons-toolbar>
+						<div class="left">
+							<ons-toolbar-button ng-click="menu.toggle()">
+								<ons-icon icon="ion-navicon custom-icon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="center">
+							Clientes
+						</div>
+					</ons-toolbar>
+					<div class="navigation-bar">
+						
+						<div class="navigation-bar__center">
+
+							<input type="search" class="search-input" style="width: 96%; margin: 6px auto 6px auto;" placeholder="Buscar" ng-model="entradaDirectorio">
+
+						</div>
+					</div>
+
+					<ons-list ng-controller="DirectorioController">
+						<ons-list-item modifier="chevron" class="item" ng-repeat="item in items | filter:entradaDirectorio " ng-click="detalleCliente(item)">
+							<ons-row>
+								<ons-col width="60px">
+									<div class="item-thum"><img style="height: 50px; width: 50px;" src="img/user_icon_blue.png"/></div>
+								</ons-col>
+								<ons-col>
+									<header>
+										<span class="item-title">{{item.Name}}</span>
+										<span class="item-label">{{item.City}}, {{item.State}}</span>
+									</header>
+									<p class="item-desc">
+										{{item.occupation}}
+									</p>
+								</ons-col>
+							</ons-row>
+						</ons-list-item>
+					</ons-list>
+				</ons-page>
+			</ons-navigator>
+		</ons-template>
+		<ons-template id="detailDirectorio.html"><ons-page ng-controller="DetailDirectorioController">
+
+				<div class="status-bar-div"></div>
+				<ons-toolbar>
+					<div class="left">
+						<ons-back-button>
+							
+						</ons-back-button>
+					</div>
+					<div class="center">
+						{{item.Name}}
+					</div>
+				</ons-toolbar>
+
+				<ons-list modifier="inset" style="margin-top: 10px">
+					<ons-list-item class="item">
+						<ons-row>
+							<ons-col width="60px">
+								<div class="item-thum"><img style="height: 50px; width: 50px;" src="img/user_icon_blue.png"/></div>
+							</ons-col>
+							<ons-col>
+									<header>
+										<span class="item-title">{{item.Name}}</span>
+										<span class="item-label">{{item.City}}, {{item.State}}</span>
+									</header>
+									<p class="item-desc">
+										{{item.occupation}}
+									</p>
+
+							</ons-col>
+						</ons-row>
+					</ons-list-item>
+
+					<ons-list-item modifier="chevron" ng-click="doSomething()">
+						<ons-icon icon="ion-star" fixed-width="true" style="color: #ccc"></ons-icon>
+						Marcar como favorito
+					</ons-list-item>
+				</ons-list>
+
+				<ons-list style="margin-top: 10px">
+					<ons-list-item class="item">
+						<header>
+							<span class="item-title">{{item.Name}}</span>
+							<span class="item-title">{{item.occupation}}</span>
+						</header>
+						<p class="item-desc">
+							{{item.Address}}
+						</p>
+						<p class="item-desc">
+							<strong>Móvil: </strong>{{item.Mobile}}
+						</p>
+						<p class="item-desc">
+							<strong>Email: </strong>{{item.Email}}
+						</p>
+						<p class="item-desc">
+							<strong>Responsable: </strong>{{item.AccountManager}}
+						</p>
+						<p class="item-desc">
+							<strong>Pasatiempo: </strong>{{item.hobbies}}
+						</p>
+					</ons-list-item>
+				</ons-list>
+
+				<br>
+
+			</ons-page>
+		</ons-template>
+    </body>
+</html>
